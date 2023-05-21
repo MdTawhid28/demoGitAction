@@ -27,7 +27,7 @@ jobs:
       - name: set up env
         run: |
        
-           echo "ENV=${{ github.event.inputs.env}}" >>$ENVIRONMENT
+           echo "ENV=${{ github.event.inputs.env}}" >>$GIT_ENV
          
        
       - name: Build and run tests
