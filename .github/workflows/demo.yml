@@ -6,11 +6,9 @@ on:
       env:
         description: 'Environment (dev or stage)'
         required: true
-        default: ${{ secrets.ENVIRONMENT }}
-      tags:
-        description: 'Tags to run'
-        required: true
-        default: 'all'
+        default: 'dev'
+        options: ['dev','stage']
+    
 
 jobs:
   run_tests:
@@ -26,6 +24,12 @@ jobs:
         with:
           java-version: 11
 
+      - name: set up env
+        run: |
+       
+           echo "ENV=${{ $github.event.inputs.env}}" >>$ENVIRONMENT
+         
+       
       - name: Build and run tests
         run: mvn clean install 
       
