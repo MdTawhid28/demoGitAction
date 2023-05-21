@@ -46,6 +46,6 @@ jobs:
           java-version: 11
 
       - name: Build and run tests
-        run: |
-          mvn clean install -Dcucumber.filter.tags="${{ github.event.inputs.tags }}"
-
+        run: mvn clean install
+      - name: Run Java Class
+        run: java -cp target/classes org.example.App
