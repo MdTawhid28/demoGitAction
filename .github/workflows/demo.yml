@@ -30,9 +30,9 @@ jobs:
       - name: Override environment secret
         run: |
           if [ "${{ github.event.inputs.environment }}" == "dev" ]; then
-            echo "ENV=dev" >>$ENVIORNMENT
+            echo "ENV=dev" >>$ENV
           elif [ "${{ github.event.inputs.environment }}" == "stage" ]; then
-            echo "ENV=stage" >>$ENVIORNMENT
+            echo "ENV=stage" >>$ENV
           fi
 
       - name: Checkout code
