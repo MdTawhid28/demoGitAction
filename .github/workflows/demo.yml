@@ -16,24 +16,14 @@ on:
         required: true
         default: 'dev'
         options: ['dev', 'stage']
-      tags:
-        description: 'Tags to run'
-        required: true
-        default: 'all'
-
+ 
 jobs:
   run_tests:
     name: Run Cucumber Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Override environment secret
-        run: |
-          if [ "${{ github.event.inputs.environment }}" == "dev" ]; then
-            echo "ENV=dev" >>$ENV
-          elif [ "${{ github.event.inputs.environment }}" == "stage" ]; then
-            echo "ENV=stage" >>$ENV
-          fi
+      
 
       - name: Checkout code
         uses: actions/checkout@v2
