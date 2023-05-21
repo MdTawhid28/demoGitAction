@@ -4,7 +4,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        String env=System.getenv("$ENVIORNMENT");
+        String env=System.getenv("$ENV");
         String baseUrl="";
         if(env !=null && !(env.equals(""))){
             if(env.equals("dev")){
