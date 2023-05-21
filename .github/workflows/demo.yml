@@ -30,12 +30,10 @@ jobs:
       - name: Override environment secret
         run: |
           if [ "${{ github.event.inputs.environment }}" == "dev" ]; then
-            echo "::set-env name=ENVIRONMENT::dev"
+            echo "ENV=dev" >>$ENVIORNMENT
           elif [ "${{ github.event.inputs.environment }}" == "stage" ]; then
-            echo "::set-env name=ENVIRONMENT::stage"
+            echo "ENV=stage" >>$ENVIORNMENT
           fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout code
         uses: actions/checkout@v2
